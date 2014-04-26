@@ -1,0 +1,21 @@
+<?php
+
+    $input = fopen("php://stdin", "r");
+    fscanf($input, "%d", $n);
+
+    fscanf($input, "%s", $string);
+    $array = str_split($string);
+    $result = array_unique($array);
+
+	for ($i = 1; $i < $n; $i++)
+    {
+      fscanf($input, "%s", $string);
+
+      $array = str_split($string);
+      $array = array_unique($array);
+      $result = array_intersect($result, $array);
+    }
+
+    print_r(sizeof($result));
+	
+?>
